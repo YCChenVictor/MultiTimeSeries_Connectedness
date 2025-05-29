@@ -4,8 +4,6 @@ import unittest
 from unittest.mock import Mock
 from multi_time_series_connectedness.rolling_connectedness import RollingConnectedness
 from tests.data_utils import get_volatilities_data
-import pandas as pd
-import numpy as np
 
 
 class TestRollingConnectedness(unittest.TestCase):
@@ -71,6 +69,7 @@ class TestRollingConnectedness(unittest.TestCase):
         callback_mock = Mock(side_effect=callback)
         roll_conn.calculate(callback_after_one_connectedness=callback_mock)
         self.assertEqual(callback_mock.call_count, 1)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
